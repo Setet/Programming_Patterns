@@ -47,13 +47,23 @@ def digits_op(x)
 	puts "Произведение = #{op}"
 end
 
+#
+
 #3
 def method_1(x)
-
+	i = 2
+	while x > 1
+		if x % i == 0
+			x /= i;
+		else
+			i += 1
+		end
+	end
+	puts "edefef = #{i}"
 end
 
 def method_2(x)
-q=10
+	q=10
 	op = 1
 	while x > 0
 		if ((x % q)/5) < 1
@@ -74,9 +84,9 @@ def Working_with_numbers(x)
 	#digits_max(x)
 	#digits_min(x)
 	#digits_op(x)
-	#method_1(x)
-	method_2(x)
+	method_1(x)
+	#method_2(x)
 	#method_3(x)
 end
 
-Working_with_numbers(55523)
+Working_with_numbers(484)
