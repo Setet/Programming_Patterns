@@ -80,6 +80,7 @@ def method_3_1(x)
 			if u % 2==1
 				if max<u then
 					max = u
+					#puts "Все непростые делители числа = #{max}"
 				end
 			end
 		end
@@ -106,20 +107,42 @@ def method_3(a,b)
   	end
 end
 
-def Working_with_numbers(x)
-	puts "Число = #{x}"
-	#digits_sum(x)
-	#digits_max(x)
-	#digits_min(x)
-	#digits_op(x)
-	#method_1(x)
-	#method_2(x)
-	a = method_3_1(x)
-	b =method_3_2(x)
-	# puts ниже,чисто для наглядности
-	puts "НОД максимального нечетного непростого делителя числа = #{a}
-	\nПроизведения цифр числа = #{b}"
-	method_3(a,b)
+def Working_with_numbers(x,y)
+	case y
+	when 1
+  		digits_sum(x)
+	when 2
+  		digits_max(x)
+	when 3
+  		digits_min(x)
+	when 4
+  		digits_op(x)
+  	when 5
+  		method_1(x)
+	when 6
+  		method_2(x)
+	when 7
+  		a = method_3_1(x)
+		b = method_3_2(x)
+		# puts ниже,чисто для наглядности
+		puts "Нечетный непростой делителя числа = #{a}\n"+
+		"Произведение цифр числа = #{b}"
+		method_3(a,b)
+	else
+		puts "Hello world"
+	end	
 end
 
-Working_with_numbers(2945)
+puts "Введите число :>"
+x = gets.chomp.to_i
+puts "Список методов :"
+puts "1) Сумма цифр числа \n"+
+"2) Максимальная цифра числа  \n"+
+"3) Минимальная цифра числа \n"+
+"4) Произведение цифр числа \n"+
+"5) Максимальный простой делитель числа \n"+
+"6) Произведение цифр числа,не делящихся на 5 \n"+
+"7) НОД максимального нечетного непростого делителя числа и произведения цифр данного числа"
+puts "Выбирайте метод :>"
+y = gets.chomp.to_i
+Working_with_numbers(x,y)
