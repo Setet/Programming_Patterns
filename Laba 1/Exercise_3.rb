@@ -31,7 +31,7 @@ end
 def array_op(array)
   op = 0
   for item in array do
-    op *= item
+    op *= item.to_i
   end
   puts "Произв элем = #{щз}"
 end
