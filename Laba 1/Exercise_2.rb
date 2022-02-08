@@ -52,7 +52,7 @@ def method_1(x)
 	i = 2
 	while x > 1
 		if x % i == 0
-			x /= i;
+			x /= i
 		else
 			i += 1
 		end
