@@ -10,7 +10,7 @@ puts "Приветсвую , #{name}!"
 #3
 puts "Какой твой любимый ЯП?"
 answer = gets.chomp
-if ["Руби","руби","Ruby","ruby",].include? answer.downcase
+if ["Руби","руби","Ruby","ruby",].include? answer
 	puts ":)"
 else
 	puts ":("
