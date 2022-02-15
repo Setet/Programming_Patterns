@@ -3,13 +3,11 @@
 puts "Hello world!"
 
 #2
-puts "Как тебя звать?"
-name = gets.chomp
-puts "Приветсвую , #{name}!"
+puts "Приветсвую , #{ARGV[0]}!"
 
 #3
-puts "Какой твой любимый ЯП?"
-answer = gets.chomp
+puts "#{ARGV[0]} , какой твой любимый ЯП?"
+answer = STDIN.gets.chomp
 if ["Руби","руби","Ruby","ruby",].include? answer
 	puts ":)"
 else
@@ -18,9 +16,10 @@ end
 
 #4
 puts "Введи команду Ruby :>"
-rub_com = gets.chomp
+rub_com = STDIN.gets.chomp
 system "ruby -e \"#{rub_com}\""
+# puts(2+2).to_i.even?
 
 puts "Введи команду OC :>"
-oc_com = gets.chomp
+oc_com = STDIN.gets.chomp
 system oc_com
