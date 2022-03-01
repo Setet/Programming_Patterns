@@ -67,19 +67,19 @@ def main
     arr = get_arr
 
     case my_method
-    when "1"
+    when "3"
         puts "Натуральное число:>"
         q = gets.chomp.to_i
         puts global_max(arr,q)
-    when "2"
+    when "15"
         puts "Натуральное число:>"
         q = gets.chomp.to_i
         puts local_min(arr,q)
-    when "3"
+    when "27"
         puts cyclic_shift(arr)
-    when "4"
+    when "39"
         puts even_odd_indices(arr)
-    when "5"
+    when "51"
         puts "i :>"
         i = gets.chomp.to_i
         puts l1_and_l2(arr,i)
