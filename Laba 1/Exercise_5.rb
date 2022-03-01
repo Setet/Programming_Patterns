@@ -2,6 +2,10 @@ def shuffle_text(text)
     text.split("").shuffle.join
 end
 
+def wtf_text(text)
+    text.split.count{|i| i.size.even?}
+end
+
 def main
     puts "Выберите задание:
     3) Перемешать все символы строки в случайном порядке.
@@ -15,7 +19,7 @@ def main
     when "3"
         puts shuffle_text(text)
     when "8"
-        puts is_palindrome(text)
+        puts wtf_text(text)
     when "16"
         puts sort_by_lenght(text)
     else
