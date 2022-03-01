@@ -6,6 +6,12 @@ def eng_lang(text)
     q=text.split("").select{ |str| ( str>="A" )&&( str<="Z" ) }
 end
 
+def min_lang(text)
+    min=9
+    q=text.split("").select{ |str| ( str>="0" )&&( str<="9" ) }
+    q.min
+end
+
 def main
     puts "Выберите задание:
     3) Необходимо найти общее количество русских символов.
@@ -21,7 +27,7 @@ def main
     when "8"
         puts eng_lang(text)
     when "16"
-        puts russia_flag()
+        puts min_lang(text)
     else
         puts "Ошибка в выборе метода"
     end
