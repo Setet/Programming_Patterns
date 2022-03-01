@@ -11,6 +11,16 @@ def russia_flag()
     s.sort.sort_by{ |i| i.size }
 end
 
+def date(text)
+    text = text.split(" ")
+    months = ["января", "февраля","марта","апреля","мая","июня","июля","августа","сентября","октября","ноября","декабря"]
+    for i in (0..text.length) do
+        if text[i].to_i > 0 && text[i].to_i <= 31 && months.include?(text[i+1]) && text[i+2].to_i >= 0
+            puts "#{text[i]} #{text[i+1]} #{text[i+2]}"
+        end
+    end
+end
+
 def main
     puts "Выберите задание:
     3) Перемешать все символы строки в случайном порядке.
@@ -30,6 +40,8 @@ def main
     else
         puts "Ошибка в выборе метода"
     end
+
 end
 
 main
+date("10 января 2000 10 2 февраля 2222 ")
