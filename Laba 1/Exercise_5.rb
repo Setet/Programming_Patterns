@@ -6,6 +6,11 @@ def wtf_text(text)
     text.split.count{|i| i.size.even?}
 end
 
+def russia_flag()
+    s = ["синий","белый","красный"]
+    s.sort.sort_by{ |i| i.size }
+end
+
 def main
     puts "Выберите задание:
     3) Перемешать все символы строки в случайном порядке.
@@ -21,7 +26,7 @@ def main
     when "8"
         puts wtf_text(text)
     when "16"
-        puts sort_by_lenght(text)
+        puts russia_flag()
     else
         puts "Ошибка в выборе метода"
     end
