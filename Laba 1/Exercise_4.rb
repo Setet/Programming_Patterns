@@ -3,10 +3,6 @@ def global_max(arr,q)
 end
 
 def local_min(arr,q)
-    #c = m[i] < m[i-1]
-    #d = m[i] < m[i+1]
-    #c == d
-    #кривое говно,поэтому сделал ниже норм(если c и d = false, то их сравнение c == d выдаст true. Нужно писать c && d)
     a=arr[q]
     b=arr[q+1]
     c=arr[q-1]
@@ -39,12 +35,9 @@ def print_counts(words,i)
   count_words(words).each do |word, count|
     l2[word] = count
   end
-  #puts l2 
   l2.delete_at(0)
-  puts "L2 = #{l2[i]}"
+  l2[i]
 end
- 
-
 
 def l1_and_l2(arr,i)
     l1 = []
@@ -106,7 +99,7 @@ end
 def clava()
     arr = [] 
     str = ''
-    puts 'Вводите элементы списка: ' 
+    puts "Вводите элементы списка: " 
     str = gets.chomp
     while str != ''
         arr.push str.to_i
