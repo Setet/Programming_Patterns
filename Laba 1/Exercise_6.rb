@@ -1,33 +1,26 @@
-def russia_lang(text)
-    text.split("").select{ |n| ( n>="а" || n>="А" )&&( n<= "я" || n<="Я" ) }.size
+def sort_text_by_lenght(text)
+    text.split("\n").sort_by(&:length)
 end
 
-def eng_lang(text)
-    q=text.split("").select{ |str| ( str>="A" )&&( str<="Z" ) }
+def sort_text_by_count_of_words(text)
+    text.split("\n").sort_by{|x| x.count(" ")}
 end
 
-def min_lang(text)
-    min=9
-    q=text.split("").select{ |str| ( str>="0" )&&( str<="9" ) }
-    q.min
-end
 
 def main
     puts "Выберите задание:
-    3) Необходимо найти общее количество русских символов.
-    8) Необходимо найти все используемые в ней строчные символы латиницы.
-    16) Дана строка. Необходимо найти минимальное из имеющихся в ней целых чисел."
+    1) Сортировать строки по длине.
+    2) Сортировать строки по кол-ву слов."
     my_method = gets.chomp
-    puts "Текст: "
-    text = gets.chomp
+    text = IO.read "C:\\Users\\Setet\\Desktop\\text.txt"
+
+    puts "Путь: #{text}"
 
     case my_method
-    when "3"
-        puts russia_lang(text)
-    when "8"
-        puts eng_lang(text)
-    when "16"
-        puts min_lang(text)
+    when "1"
+        puts sort_text_by_lenght(text)
+    when "2"
+        puts sort_text_by_count_of_words(text)
     else
         puts "Ошибка в выборе метода"
     end
