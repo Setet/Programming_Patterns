@@ -1,8 +1,8 @@
-def sort_text_by_lenght(text)
+def sort_lenght(text)
     text.split("\n").sort_by(&:length)
 end
 
-def sort_text_by_count_of_words(text)
+def sort_words(text)
     text.split("\n").sort_by{|x| x.count(" ")}
 end
 
@@ -18,9 +18,9 @@ def main
 
     case my_method
     when "1"
-        puts sort_text_by_lenght(text)
+        puts sort_lenght(text)
     when "2"
-        puts sort_text_by_count_of_words(text)
+        puts sort_words(text)
     else
         puts "Ошибка в выборе метода"
     end
