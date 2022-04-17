@@ -1,52 +1,76 @@
 class Department
 
-    attr_accessor :name, :contact_phone
+  attr_accessor :name
+  attr_reader :phone
 
-    @duty_list = Array.new
+  def initialize (name, phone, *duty)
+  @name = name
+  self.phone = phone
+  @duty = duty
+  @index_duty = -1 # Индекс выбранной обязанности
+  end
 
-    def initialize(name, contact_phone, duty_list = nil)
-        self.name = name
-        self.contact_phone = is_phone_number?(contact_phone)
-        @duty_list = duty_list 
-        self.main_duty = if duty_list.is_empty? then -1 else 0
+  # Конструктор, который кушает строку(вопросик по правильности работы)
+  def Department.read_line(line)
+    component = line.chomp.split(';')
+    new(component[0], component[1],component[2].split(','))
+  end
+  
+  # Получение информации
+  def to_s
+    "Название: #{@name};\nТелефон : #{@phone}; \nОбязанности : \n#{duty}\n"
+  end
+
+  # Вывод всех обязанностей
+  def duty
+    s = ""
+    @duty.each_index{|i| s += "#{i} - #{@duty[i]} \n"}
+    s
+  end
+
+  # Добавить обязанность
+  def duty_add(value)
+    @duty.append(value)
+  end
+
+  # Выделить обязанность
+  def duty_select(index)
+    @index = index
+  end
+
+  # Удалить обязанность
+  def duty_delete
+    @duty.delete_at(@index)
+    @index = -1
+  end
+
+  # Получить текст обязанности
+  def get_text_sel_duty
+    @duty[@index]
+  end
+
+  # Заменить текст выделенной обязанности
+  def change_text_sel_duty(value)
+    @duty[@index] = value
+  end
+
+  # Сэттэр
+  def phone=(value)
+    if self.class.verify_phone(value)
+      @phone = value
+    else raise ArgumentError.new("Номер телефона введен неверно!")
     end
+  end
 
-    def to_s
-        "Депортамент \"#{name}\" \nТелефон: #{contact_phone} \n#{show_all_dutyes}\n#{main_duty_show}"
-	end
+  # Метод класса для проверки номера телефона
+  def self.verify_phone(phone)
+    /^((\+7|7|8)+([0-9]){10})$/.match(phone).to_s == phone
+  end
 
-    def add_duty(duty)
-        @duty_list.push(duty)
-        main_duty = @duty_list.size - 1
-    end
-
-    def delete_duty
-        @duty_list.delete_at(@main_duty)
-        main_duty -= 1
-    end
-
-    def show_all_dutyes
-        if @duty_list.empty?
-            "Должностей в департаменте нет"
-        else
-            "Должности в депортаменте следующие: #{@duty_list.join(", ")}"
-        end
-    end
-
-    def set_main_duty(duty)
-        @duty_list[@main_duty] = duty
-    end
-
-    def main_duty
-        @duty_list[@main_duty]
-    end
-
-    def is_phone_number?(my_phone)
-       if my_phone.match?(/[+][7][0-9]{10}/)
-           true
-       else 
-           false
-       end
-    end
+  # Вывод всех обязанностей в txt
+  def duty_write_txt
+    s = ""
+    @duty.each_index{|i| s += "#{@duty[i]},"}
+    s.chop
+  end
 end
-
