@@ -57,9 +57,12 @@ class Department_list
 
   def write_to_txt(file)
     File.open(file, "w") do |f|
-      #вопросик на счёт последнего x
       @departments.each{|x| f.puts("#{x.name};#{x.phone};#{x.duty_write_txt}")}
     end
+  end
+
+  def Department_list.read_from_yaml(path) 
+    Department_list.new(Psych.safe_load_file(path, permitted_classes: [Department]))
   end
 
 end
