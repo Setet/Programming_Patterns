@@ -2,6 +2,8 @@ path = File.dirname(__FILE__) #путь к папке
 require "#{path}/Department.rb"
 require "#{path}/Department_list.rb"
 
+require "yaml"
+
 # Считывание отделов из файла
 def read_from_txt(file)
   file = File.new(file, "r")
@@ -28,35 +30,47 @@ def departments_info(list_departments)
   list_departments.each{|x| puts(x)}
 end
 
+# Читаем ямл
+def read_from_yaml(path)
+    Psych.safe_load_file(path, permitted_classes: [Department])
+end
+
+# Записываем ямл
+def write_to_yaml(path, arr)
+    File.open(path, "w") do |file|
+        file.write(YAML.dump(arr))
+    end
+end
+
 
 
 def main
   #Department.rb------------------------------------------------------
 
   number="+79181311793"
-  duty_name = "Устраивать резню"
+  #duty_name = "Устраивать резню"
 
-  a=Department.new("Z",number,"работать")
-  b=Department.new("X","+79181311794","не работать")
-  c=Department.new("C","+79181311795","почти работать")
+  a=Department.new("Младший прогер",number,"работать")
+  b=Department.new("Старший прогер","+79181311794","не работать")
+  c=Department.new("Менеджер проекта","+79181311795","почти работать")
 
-  puts a
+  #puts a
 
-  puts b.duty
+  #puts b.duty
 
-  puts a.duty_add(duty_name)
-  puts a
+  #puts a.duty_add(duty_name)
+  #puts a
 
-  puts a.duty_select(1)
+  #puts a.duty_select(1)
 
-  puts a.duty_delete
-  puts a
+  #puts a.duty_delete
+  #puts a
 
-  puts a.duty_select(0)
+  #puts a.duty_select(0)
 
-  puts a.get_text_sel_duty
+  #puts a.get_text_sel_duty
 
-  puts a.change_text_sel_duty("отдихать")
+  #puts a.change_text_sel_duty("отдихать")
 
   #Department_list.rb------------------------------------------------------
 
@@ -83,11 +97,26 @@ def main
 
   #С файликом работаем------------------------------------------------------
 
-  departments = Department_list.initialize_txt("Department.txt")
-  puts departments
+  #departments = Department_list.initialize_txt("Department.txt")
+  #puts departments
 
+  #Department_list.write_to_txt("Department_write.txt")
 
-  Department_list.write_to_txt("Department_write.txt")
+  #С ямлом работаю----------------------------------------------------------
+  arr=[a,b,c]
+  write_to_yaml("Departments.yaml",arr)
+
+  dep_list=Department_list.read_from_yaml("Departments.yaml")
+  puts dep_list
+
+  d=Department.new("Старший инженер","+79185351795","всегда работать")
+
+  arr.push(d)
+  write_to_yaml("Departments.yaml",arr)
+
+  dep_list=Department_list.read_from_yaml("Departments.yaml")
+  puts dep_list
+
 end
 
 if __FILE__ == $0
