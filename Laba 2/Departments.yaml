@@ -1,0 +1,25 @@
+---
+- !ruby/object:Department
+  name: Младший прогер
+  phone: "+79181311793"
+  duty:
+  - работать
+  index_duty: -1
+- !ruby/object:Department
+  name: Старший прогер
+  phone: "+79181311794"
+  duty:
+  - не работать
+  index_duty: -1
+- !ruby/object:Department
+  name: Менеджер проекта
+  phone: "+79181311795"
+  duty:
+  - почти работать
+  index_duty: -1
+- !ruby/object:Department
+  name: Старший инженер
+  phone: "+79185351795"
+  duty:
+  - всегда работать
+  index_duty: -1
