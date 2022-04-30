@@ -4,30 +4,33 @@ require "#{path}/Department_list.rb"
 
 require "yaml"
 
-# Считывание отделов из файла
-def read_from_txt(file)
-  file = File.new(file, "r")
-  list_departments = [] # Список отделов
-  for line in file.readlines
-    component = line.chomp.split(';')
-
-    list_departments.push(d = Department.new(component[0], component[1]))
-    component[2].split(',').each{|x| d.duty_add(x)} # Добавили обязанности
-  end
-  file.close()
-  list_departments
+# Считывание отделов из файла txt
+def read_from_txt(path)
+    arr = Array.new
+    file = File.new(path, "r:UTF-8")
+    text = file.read
+    arr = text.split((/\n_+\n/)).map do|dep|
+        Department.get_dep_str(dep)
+    end
+    arr
 end
 
 # Запись отделов в файл
-def write_to_txt(file, list_departments)
-  File.open(file, "w") do |f|
-    list_departments.each{|x| f.puts("#{x.name};#{x.phone};#{x.duty_write_txt}")}
-  end
+def write_to_txt(path, arr)
+    File.open("#{path}", "w") do |file|
+        arr.each do |e|
+            file.puts e
+            file.puts "_"
+        end
+    end
 end
 
 # Вывод отделов из файла
-def departments_info(list_departments)
-  list_departments.each{|x| puts(x)}
+def print_dep(arr)
+    arr.each do |dep|
+        puts dep
+        puts "_"
+    end
 end
 
 # Читаем ямл
@@ -45,78 +48,34 @@ end
 
 
 def main
-  #Department.rb------------------------------------------------------
 
-  number="+79181311793"
-  #duty_name = "Устраивать резню"
+  #arr_dep=read_from_txt("Departments.txt")
+  #arr_dep=read_from_yaml("departments.yaml")
 
-  a=Department.new("Младший прогер",number,"работать")
-  b=Department.new("Старший прогер","+79181311794","не работать")
-  c=Department.new("Менеджер проекта","+79181311795","почти работать")
+  #deps_list=Department_list.read_from_yaml("Departments.yaml")
 
-  #puts a
+  #write_to_yaml("Departments.yaml",arr_dep)
+  #deps_list=Department_list.read_from_yaml("Departments.yaml")
+  #puts deps_list 
+  #deps_list.add_note(Department.new("Отдел_Закупок","+89284355055"))
+  #deps_list.sort_by_name
+  #puts deps_list 
 
-  #puts b.duty
+  #dep=Department.new("Рекламный_отдел","+74234252230","Пиарить")
 
-  #puts a.duty_add(duty_name)
-  #puts a
+  #dep.add_post("Гл_пиарщик","12","true")
 
-  #puts a.duty_select(1)
+  deps_list=Department_list.read_from_yaml("Departments+Post.yaml")
+  #deps_list.add_note(dep)
 
-  #puts a.duty_delete
-  #puts a
+  #deps_list.choose_note(7)
+  #deps_list.delete_note()
 
-  #puts a.duty_select(0)
+  puts deps_list.sort_by_numbers_vacancies
 
-  #puts a.get_text_sel_duty
-
-  #puts a.change_text_sel_duty("отдихать")
-
-  #Department_list.rb------------------------------------------------------
-
-  #q = ["Отдел продаж;+79234252522;Привлечение клиентов"]
-  #w = "Отдел кадров;+74234252230;Расчет премии,Определение количество рабочих дней"
-  #w_1 = "Отдел чилла;+75234252230;Чилл"
-
-  #deps = Department_list.new(q)
-
-  #deps.to_s
-
-  #deps.add_note(w)
-
-  #deps.choose_note(1)
-
-  #deps.change_note(w_1)
-  #puts deps.to_s
-
-  #вопросик на счёт работы
-  #puts deps.get_note
-
-  #puts deps.delete_note
-  #puts deps.to_s
-
-  #С файликом работаем------------------------------------------------------
-
-  #departments = Department_list.initialize_txt("Department.txt")
-  #puts departments
-
-  #Department_list.write_to_txt("Department_write.txt")
-
-  #С ямлом работаю----------------------------------------------------------
-  arr=[a,b,c]
-  write_to_yaml("Departments.yaml",arr)
-
-  dep_list=Department_list.read_from_yaml("Departments.yaml")
-  puts dep_list
-
-  d=Department.new("Старший инженер","+79185351795","всегда работать")
-
-  arr.push(d)
-  write_to_yaml("Departments.yaml",arr)
-
-  dep_list=Department_list.read_from_yaml("Departments.yaml")
-  puts dep_list
-
+  #puts deps_list.get_note.get_number_vacancies
+  #puts deps_list.to_s_short
+  deps_list.write_to_yaml("Departments+Post.yaml")
 end
 
 if __FILE__ == $0
