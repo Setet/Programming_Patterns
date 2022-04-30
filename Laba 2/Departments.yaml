@@ -1,25 +1,32 @@
 ---
 - !ruby/object:Department
-  name: Младший прогер
-  phone: "+79181311793"
-  duty:
-  - работать
-  index_duty: -1
+  name: Name Department
+  phone_number: '79186233570'
+  duties:
+    Обязанность_1: Думать
+    Обязанность_2: Убивать
+  selected_duty:
+  post_list: !ruby/object:Post_list
+    post_list: []
+    selected_note: 0
 - !ruby/object:Department
-  name: Старший прогер
-  phone: "+79181311794"
-  duty:
-  - не работать
-  index_duty: -1
+  name: ABOBA Department
+  phone_number: '71346745648'
+  duties:
+    Обязанность_1: Копать руду
+    Обязанность_2: Ростить пшеницу
+  selected_duty:
+  post_list: !ruby/object:Post_list
+    post_list: []
+    selected_note: 0
 - !ruby/object:Department
-  name: Менеджер проекта
-  phone: "+79181311795"
-  duty:
-  - почти работать
-  index_duty: -1
-- !ruby/object:Department
-  name: Старший инженер
-  phone: "+79185351795"
-  duty:
-  - всегда работать
-  index_duty: -1
+  name: Pepe Department
+  phone_number: '75459875339'
+  duties:
+    Обязанность_1: Покупать
+    Обязанность_2: Продавать
+    Обязанность_3: Убирать
+  selected_duty:
+  post_list: !ruby/object:Post_list
+    post_list: []
+    selected_note: 0
