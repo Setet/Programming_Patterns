@@ -1,0 +1,111 @@
+---
+- !ruby/object:Department
+  name: Уборка
+  phone_number: "+79183633044"
+  duties: {}
+  selected_duty:
+  post_list: !ruby/object:Post_list
+    post_list:
+    - !ruby/object:Post
+      department: Уборка
+      post_name: Главный_по_сральникам
+      salary: '12'
+      vacancy: true
+    - !ruby/object:Post
+      department: Уборка
+      post_name: Мл_уборшик
+      salary: '11'
+      vacancy: false
+    selected_note: 0
+- !ruby/object:Department
+  name: Тёмное_братство
+  phone_number: "+79182633044"
+  duties: {}
+  selected_duty:
+  post_list: !ruby/object:Post_list
+    post_list:
+    - !ruby/object:Post
+      department: Тёмное_братство
+      post_name: Убивца
+      salary: '12'
+      vacancy: true
+    selected_note: 0
+- !ruby/object:Department
+  name: Отдел_инвистиций
+  phone_number: "+79181633044"
+  duties: {}
+  selected_duty:
+  post_list: !ruby/object:Post_list
+    post_list:
+    - !ruby/object:Post
+      department: Отдел_инвистиций
+      post_name: Гл_аналитик
+      salary: '12'
+      vacancy: true
+    - !ruby/object:Post
+      department: Отдел_инвистиций
+      post_name: Мл_аналитик
+      salary: '13'
+      vacancy: true
+    selected_note: 0
+- !ruby/object:Department
+  name: Транспортный_отдел
+  phone_number: "+79182633044"
+  duties: {}
+  selected_duty:
+  post_list: !ruby/object:Post_list
+    post_list:
+    - !ruby/object:Post
+      department: Транспортный_отдел
+      post_name: Клинер
+      salary: '12'
+      vacancy: true
+    - !ruby/object:Post
+      department: Транспортный_отдел
+      post_name: Ст_водила
+      salary: '13'
+      vacancy: true
+    - !ruby/object:Post
+      department: Транспортный_отдел
+      post_name: Мл_водила
+      salary: '11'
+      vacancy: true
+    - !ruby/object:Post
+      department: Транспортный_отдел
+      post_name: Ст_механик
+      salary: '10'
+      vacancy: true
+    - !ruby/object:Post
+      department: Транспортный_отдел
+      post_name: Мл_механик
+      salary: '14'
+      vacancy: true
+    - !ruby/object:Post
+      department: Транспортный_отдел
+      post_name: Экскурсовод
+      salary: '15'
+      vacancy: true
+    selected_note: 0
+- !ruby/object:Department
+  name: Отдел_прогеров
+  phone_number: "+79182033044"
+  duties: {}
+  selected_duty:
+  post_list: !ruby/object:Post_list
+    post_list:
+    - !ruby/object:Post
+      department: Отдел прогеров
+      post_name: Младший прогер
+      salary: '12'
+      vacancy: true
+    - !ruby/object:Post
+      department: Отдел прогеров
+      post_name: Старший прогер
+      salary: '13'
+      vacancy: true
+    - !ruby/object:Post
+      department: Отдел прогеров
+      post_name: Менеджер проекта
+      salary: '14'
+      vacancy: false
+    selected_note: 1
