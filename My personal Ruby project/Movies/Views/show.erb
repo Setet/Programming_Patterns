@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='UTF-8' />
+        <title>Фильм — <%= @movie.title %></title>
+    </head>
+    <body>
+        <h1><%= @movie.title %></h1>
+        <table>
+            <tr>
+                <td><strong>Название фильма:</strong></td>
+                <td><%= @movie.title %></td>
+            </tr>
+            <tr>
+                <td><strong>Режисёр:</strong></td>
+                <td><%= @movie.director %></td>
+            </tr>
+            <tr>
+                <td><strong>Год выхода:</strong></td>
+                <td><%= @movie.year %></td>
+            </tr>
+        </table>
+        <a href="/movies">Вернуться на главную</a>
+    </body>
+</html>

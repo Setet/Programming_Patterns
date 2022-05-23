@@ -2,10 +2,10 @@
 <html>
     <head>
         <meta charset='UTF-8' />
-        <title>My Movies</title>
+        <title>Мои фильмы</title>
     </head>
     <body>
-        <h1>My Movies</h1>
+        <h1>Мои фильмы</h1>
         <ul>
             <% @movies.each do |movie| %>
                 <li>
@@ -13,6 +13,14 @@
                 </li>
             <% end %>
         </ul>
-        <a href="/movies/new">Add New Movie</a>
+        <tr>
+            <td><a href="/movies/new">Добавить новый фильм</a></td>
+        </tr>
+        <tr>
+            <td><a href="/movies/delete">Удалить фильм фильм</a></td>
+        </tr>
+        <tr>
+            <td><a href="/movies/change">Поменять информацию о фильме</a></td>
+        </tr>
     </body>
 </html>
