@@ -3,6 +3,13 @@
     <head>
         <meta charset='UTF-8' />
         <title>Мои фильмы</title>
+        <style type="text/css">
+            body {
+                font-size: 20px;
+                font-family: Verdana;
+                padding: 0% 40% 0% 40% ;
+            }
+        </style>
     </head>
     <body>
         <h1>Мои фильмы</h1>
@@ -13,14 +20,16 @@
                 </li>
             <% end %>
         </ul>
-        <tr>
-            <td><a href="/movies/new">Добавить новый фильм</a></td>
-        </tr>
-        <tr>
-            <td><a href="/movies/delete">Удалить фильм фильм</a></td>
-        </tr>
-        <tr>
-            <td><a href="/movies/change">Поменять информацию о фильме</a></td>
-        </tr>
+        <table>
+            <tr>
+                <td><a href="/movies/new">Добавить новый фильм</a></td>
+            </tr>
+            <tr>
+                <td><a href="/movies/delete">Удалить фильм</a></td>
+            </tr>
+            <tr>
+                <td><a href="/movies/change">Изменить информацию о фильме</a></td>
+            </tr>
+        <table>
     </body>
 </html>
