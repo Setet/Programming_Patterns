@@ -1,16 +1,11 @@
 ---
-1: !ruby/object:Movie
-  title: rf
-  director: fcd
-  year: '1234'
-  id: 1
 2: !ruby/object:Movie
-  title: '1'
-  director: '2'
-  year: '3'
+  title: Список Шиндлера
+  director: Стивен Спилберг
+  year: '1993'
   id: 2
 3: !ruby/object:Movie
-  title: ffgd
-  director: dfgd
-  year: '765'
+  title: Побег из Шоушенка
+  director: Фрэнк Дарабонт
+  year: '1994'
   id: 3

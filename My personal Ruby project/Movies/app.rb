@@ -5,7 +5,7 @@ require 'movie'
 # конектим класс с методами для муви
 require 'movie_store'
 
-#
+
 store = MovieStore.new('movies.yml')
 
 # для вывода на мейн морду всех фильмов
@@ -27,6 +27,33 @@ post('/movies/create') do
 	@movie.year = params['year']
 	store.save(@movie)
 	redirect '/movies/new'
+end
+
+# удаление фильма
+get('/movies/delete') do
+	erb :delete
+end
+
+post('/movies/deletes') do
+	@movie = Movie.new
+	@movie.id = params['id'].to_i
+	store.delete(@movie)
+	redirect '/movies/delete'
+end
+
+# Изменить информацию о фильме
+get('/movies/change') do
+	erb :change
+end
+
+post('/movies/changes') do
+	@movie = Movie.new
+	@movie.title = params['title']
+	@movie.director = params['director']
+	@movie.year = params['year']
+	@movie.id = params['id'].to_i
+	store.change(@movie)
+	redirect '/movies/change'
 end
 
 # Этот маршрут должен быть всегда последним !!!

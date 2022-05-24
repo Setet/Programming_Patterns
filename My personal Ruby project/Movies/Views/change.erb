@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='UTF-8' />
+        <title>Изменить информацию о фильме</title>
+        <style type="text/css">
+            body {
+                font-size: 20px;
+                font-family: Verdana;
+                padding: 0% 40% 0% 40% ;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Изменить информацию о фильме</h1>
+        <form method="post" action="/movies/changes">
+            <table>
+                <tr>
+                    <td><label for="title">Название фильма:</label></td>
+                    <td><input type="text" name="title"></td>
+                </tr>
+                <tr>
+                    <td><label for="director">Режисёр:</label></td>
+                    <td><input type="text" name="director"></td>
+                </tr>
+                <tr>
+                    <td><label for="year">Год выхода:</label></td>
+                    <td><input type="text" name="year"></td>
+                </tr>
+                <tr>
+                    <td><label for="id">id:</label></td>
+                    <td><input type="number" name="id"></td>
+                </tr>
+                <tr>
+                    <td><input type="submit"></td>
+                </tr>
+            </table>
+        </form>
+    <a href="/movies">Вернуться на главную</a>
+    </body>
+</html>

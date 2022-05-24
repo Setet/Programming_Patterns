@@ -32,4 +32,18 @@ class MovieStore
 			@store[movie.id] = movie
 		end
 	end
+
+	# метод для изменения данных о фильме
+	def change(movie)
+		@store.transaction do
+			@store[movie.id] = movie
+		end
+	end
+
+	# метод для удаления фильма
+	def delete(movie)
+		@store.transaction do
+			@store.delete(movie.id)
+		end
+	end
 end
